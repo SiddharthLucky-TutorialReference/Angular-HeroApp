@@ -1,0 +1,21 @@
+<h2>
+  Hero {{hero.name}}
+</h2>
+<div>
+  <span>ID: {{hero.id}}</span>
+  <span>Name: {{hero.name}}</span>
+</div>
+
+<!--Enabling 2 way binding-->
+<div>
+  <input [(ngModel)]="hero.name" placeholder="name">
+</div>
+
+<h2>Intro to For Loop</h2>
+<div>
+  <ul class = "heros">
+    <li class = "badge" *ngFor="let hero of heros" (click)="onSelectHero">
+      <span>ID: {{hero.id}} Name: {{hero.name}}</span>
+    </li>
+  </ul>
+</div>
