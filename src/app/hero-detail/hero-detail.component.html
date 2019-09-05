@@ -1,0 +1,9 @@
+<h2>Selected Hero</h2>
+<!--Intially this value is empty-->
+<div *ngIf="hero">
+  <h6>{{hero.name}} Details</h6>
+  <label>ID: {{hero.id}}</label>
+  <label>Name: {{hero.name}}</label>
+  <h6>2 way binding the selected value</h6>
+  <input [(ngModel)]="hero.name" placeholder="Hero Name">
+</div>

@@ -14,8 +14,31 @@
 <h2>Intro to For Loop</h2>
 <div>
   <ul class = "heros">
-    <li class = "badge" *ngFor="let hero of heros" (click)="onSelectHero">
-      <span>ID: {{hero.id}} Name: {{hero.name}}</span>
+    <li class = "badge" *ngFor="let hero of heros" (click)="onSelectHero(hero)">
+      <span>ID: {{hero.id}}  Name: {{hero.name}}</span>
     </li>
   </ul>
 </div>
+
+<h2>Selected Hero</h2>
+<!--Intially this value is empty-->
+<div *ngIf="selectedHero">
+  <h6>{{selectedHero.name}} Details</h6>
+  <label>ID: {{selectedHero.id}}</label>
+  <label>Name: {{selectedHero.name}}</label>
+  <h6>2 way binding the selected value</h6>
+  <input [(ngModel)]="selectedHero.name" placeholder="Hero Name">
+</div>
+
+<h2>Using [class.selected] in for Loop</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heros"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelectHero(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<h2>Extracting component using @Input</h2>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
